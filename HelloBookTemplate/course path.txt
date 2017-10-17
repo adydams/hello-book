@@ -1,0 +1,268 @@
+Section: 1
+Welcome
+
+    1. Welcome & Asking Awesome Questions 1:20
+
+Section: 2
+Getting Setup
+
+    2. Section Intro 0:46
+    3. Installing Node 6:30
+    4. What Is Node? 7:23
+    5. Why Should I Use Node? 15:17
+    6. Installing Atom 2:32
+    7. Hello World! 4:37
+        hello-world.zip
+
+Section: 3
+Node.js Fundamentals (Note App)
+
+    8. Section Intro 1:11
+    9. Using Require 15:25
+        module-basics.zip
+    10. Requiring Your Own Files 12:23
+        require-own-files.zip
+    11. Using 3rd Party Modules 15:31
+        3rd-party-modules.zip
+    12. Restarting App with Nodemon 6:11
+        global-modules.zip
+    13. Getting Input From User 12:22
+        getting-input.zip
+    14. Simplified Input With Yargs 19:13
+        yargs.zip
+    15. Working With JSON 14:55
+        json.zip
+    16. Adding and Saving Notes 13:50
+        adding-note.zip
+    17. Refactoring For Reusability 10:00
+        refactor.zip
+    18. Removing a Note 9:08
+        removing-note.zip
+    19. Reading Notes and Reusability 10:57
+        reading-note.zip
+    20. Debugging Node.js Applications 12:47
+        debugging.zip
+    21. Using Node Inspector 1:34
+        debugging-pt2.zip
+    22. Listing Notes 4:37
+        listing-notes.zip
+    23. Requiring Arguments and Advanced Yargs 15:12
+        advanced-yargs.zip
+    24. Arrow Functions 9:50
+        arrow-functions.zip
+
+Section: 4
+Asynchronous Node.js (Weather App)
+
+    25. Section Intro 1:04
+    26. Async Basics 7:51
+        async-basics.zip
+    27. Call Stack & Event Loop 12:20
+    28. Callback Functions & APIs 16:12
+        callbacks.zip
+    29. Pretty Printing Objects 2:44
+        pretty-printing.zip
+    30. What's Makes up an HTTP Request? 13:26
+        http.zip
+    31. Encoding User Input 13:47
+        encoding.zip
+    32. Callback Errors 9:15
+        geocoding.zip
+    33. Abstracting Callbacks 12:38
+        abstracting-callbacks.zip
+    34. Wiring Up Weather Search 13:39
+        weather.zip
+    35. Chaining Callbacks Together 17:15
+        chaining.zip
+    36. Intro to ES6 Promises 12:36
+        promises.zip
+    Quiz 1: Promises Quiz
+    37. Advanced Promises 17:38
+        promises-2.zip
+    38. Weather App With Promises 17:29
+        weather-promises.zip
+    39. Extra Features 1:07
+
+Section: 5
+Web Servers and Application Deployment
+
+    40. Section Intro 1:07
+    41. Hello Express 16:49
+        hello-express.zip
+    42. Creating a Web Server 7:12
+        static-server.zip
+    43. Rendering Templates with Data 13:53
+        rendering-templates.zip
+    44. Advanced Templating 13:37
+        advanced-templates.zip
+    45. Express Middleware 16:13
+        middleware.zip
+    46. Adding Version Control (Git) 12:31
+        git.zip
+    47. Setting Up GitHub & SSH Keys 13:29
+        heroku-github.zip
+    48. Deploying Your Apps 15:07
+        deploying.zip
+    49. Adding a New Feature and Deploying 8:30
+        workflow-test.zip
+
+Section: 6
+Testing Your Applications
+
+    50. Section Intro 1:03
+    51. Mocha and Basic Testing 16:41
+        basic-testing.zip
+    52. Watch and Auto Restart Tests 4:03
+        watch-tests.zip
+    53. Using an Assertion Library 19:58
+        assertion-libraries.zip
+    54. Testing Asynchronous Code 11:25
+        async-testing.zip
+    55. Testing Express Applications: Part I 3:16
+        testing-express.zip
+    56. Testing Express Applications: Part II 19:12
+        testing-express-2.zip
+    57. Organizing Test With describe() 6:44
+        describe.zip
+    58. Test Spies 16:05
+        spies.zip
+
+Section: 7
+MongoDB, Mongoose, and REST APIs (Todo API)
+
+    59. Section Intro 1:24
+    60. Installing MongoDB and Robomongo (Mac, Linux) 9:54
+    61. Installing MongoDB and Robomongo (Windows) 10:44
+    62. Building a NoSQL Vocabulary 2:48
+    63. Connecting to Mongo and Writing Data 18:43
+        connect-write.zip
+    64. The ObjectId 10:05
+        objectid.zip
+    65. Fetching Data 16:33
+        fetching-data.zip
+    66. Setting Up The Repo 3:48
+        git.zip
+    67. Deleting Documents 15:24
+        deleting-documents.zip
+    68. Updating Data 11:47
+        updating-documents.zip
+    69. The Mongoose ORM 1:02
+    70. Setting Up Mongoose 16:07
+        mongoose-setup.zip
+    71. Validators, Types, and Defaults 13:05
+        schemas.zip
+    72. Installing Postman 5:18
+    73. Resource Creation Endpoint - POST /todos 18:08
+        post-todos.zip
+    74. Testing POST /todos 19:50
+        test-post-todos.zip
+    75. List Resources - GET /todos 7:09
+        get-todos.zip
+    76. Testing GET /todos 6:14
+        test-get-todos.zip
+    77. Mongoose Queries and ID Validation 16:26
+        queries-and-id-validation.zip
+    78. Getting an Individual Resource - GET /todos/:id 13:28
+        get-single-resource.zip
+    79. Testing GET /todos/:id 10:53
+        testing-get-todo.zip
+    80. Deploy API to Heroku 9:57
+        deploy-to-heroku.zip
+    81. Postman Environments 5:58
+    82. Delete a Resource - DELETE /todos/:id 14:54
+        delete-todo.zip
+    83. Testing DELETE /todos/:id 10:18
+        testing-delete-todo.zip
+    84. Updating a Resource - PATCH /todos/:id 14:19
+        update-todo.zip
+    85. Testing PATCH /todos/:id 11:01
+        testing-update-todo.zip
+    86. Creating a Test Database 13:39
+        test-database.zip
+
+Section: 8
+Security and Authentication
+
+    87. Section Intro 0:53
+    88. Setting Up The User Model 17:58
+        usermodel.zip
+    89. JWTs and Hashing 19:32
+        jwt.zip
+    90. Generating Auth Tokens and Setting Headers 16:45
+        generatingauthtokens.zip
+    91. Private Routes and Auth Middleware 18:45
+        privateroute.zip
+    92. Hashing Passwords 16:43
+        hashingpasswords.zip
+    93. Seeding Test Database With Users 13:47
+        seedingusers.zip
+    94. Testing POST /users and GET /users/me 17:35
+        testsignup.zip
+    95. Logging In - POST /users/login 16:52
+        login.zip
+    96. Testing POST /users/login 9:35
+        testlogin.zip
+    97. Logging Out - DELETE /users/me/token 7:58
+        logout.zip
+    98. Testing DELETE /users/me/token 7:19
+        testinglogout.zip
+    99. Making Todo Routes Private (Part 1) 11:36
+        userstodospt1.zip
+    100. Making Todo Routes Private (Part 2) 16:33
+        userstodospt2.zip
+    101. Improving App Configuration 17:47
+        updatedconfig.zip
+    102. Deploying To Heroku 9:37
+        heroku.zip
+    103. Bonus: Advanced Postman 10:50
+
+Section: 9
+Real-Time Web Apps with Socket.io
+
+    104. Section Intro 1:09
+    105. Creating a New Project 17:27
+        newproject.zip
+    106. Adding Socket.io to an App 19:45
+        addingsocketio.zip
+    107. Emitting and Listening to Events 17:35
+        emitandon.zip
+    108. Emitting and Listening to Events (Solution) 6:22
+        emitsolution.zip
+    109. Broadcasting Events 15:05
+        broadcasting.zip
+    110. Message Generator & Tests 13:43
+        messagegenerator.zip
+    111. Event Acknowledgements 7:12
+        acknowledgements.zip
+    112. Message Form & jQuery 17:48
+        messageform.zip
+    113. Geolocation Part I 14:50
+        geolocation1.zip
+    114. Geolocation Part II 17:38
+        geolocation2.zip
+    115. Styling The Chat Page 17:19
+        chatstyles.zip
+    116. Timestamps and Formatting with Moment 17:57
+        momentjs.zip
+    117. Printing Message Timestamps 9:46
+        messagetimestamp.zip
+    118. Moustache.js 15:55
+        moustache.zip
+    119. Autoscrolling 13:07
+        autoscrolling.zip
+    120. Adding a Join Page 10:17
+        joinpage.zip
+    121. Passing Room Data 19:36
+        joinevent.zip
+    122. Socket.io Rooms 7:33
+        joinroom.zip
+    123. Storing Users With ES6 Classes: Part I 18:40
+        classes1.zip
+    124. Storing Users With ES6 Classes: Part II 18:31
+        classes2.zip
+    125. Wiring Up User List 14:22
+        userlist.zip
+    126. Sending Messages To Room Only 10:21
+        privatemessages.zip
+    127. New Feature Ideas 2:04
+    
