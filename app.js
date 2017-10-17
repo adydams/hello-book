@@ -15,10 +15,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //a default routes
 
-app.get('*', (req, res)=>{
+app.get('/api', (req, res)=>{
     res.status(200).send({
        message: 'Welcome to Hello-Book, default routes'
     });
+});
+
+// adding a new book
+app.post('/api/books', (req, res)=>{
+      let  book = ({
+      title: req.body.title,
+      author: req.body.author,
+      bookSummary: req.body.bookSummary,
+      isbn: req.body.isbn
+    });
+  
+    res.send(book);
 });
 
 module.exports = app; 
