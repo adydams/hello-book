@@ -26,7 +26,7 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
-      role: {
+      roleId: {
         type: Sequelize.STRING
       },
       mobileNumber: {
