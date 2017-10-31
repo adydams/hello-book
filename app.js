@@ -6,6 +6,7 @@ const fs = require('fs');
 //const dummyMemory =require('./dummyMemory');
 //set up express as app
 const app = express();
+const userController = require('./server/controllers/user');
 
 //log response to the console
 app.use(logger('dev'))
@@ -32,8 +33,7 @@ app.post('/api/books', (req, res)=>{
       bookSummary: req.body.bookSummary,
       isbn: req.body.isbn
     });
-    console.log(book);
-    fs.appendFile('dummyMemory.json',"{ \n "+"id"+":"+ '"'+book.id+'"'+'\n'+"author"+":"+ '"'+book.author+'"' +'\n'+"title"+'"'+book.title+'"' +'\n'+"summary"+'"'+book.bookSummary+'"'+'\n'+"isbn"+ '"'+book.isbn +'"'+'\n'+"}");
+    
     res.send(book);
 });
 
@@ -44,5 +44,9 @@ app.put('/api/books/<bookId>', ()=>{
 
     // }
 });
+
+
+app.post('/api/user/signup', userController.signup)
+app.post('/api/user/signin', userController.signin)
 
 module.exports = app; 
