@@ -7,7 +7,7 @@ const fs = require('fs');
 //set up express as app
 const app = express();
 const userController = require('./server/controllers/user');
-
+const bookController = require('./server/controllers/book')
 //log response to the console
 app.use(logger('dev'))
 
@@ -25,28 +25,17 @@ app.get('/api', (req, res)=>{
 });
 
 // adding a new book
-app.post('/api/books', (req, res)=>{
-      let  book = ({
-      id: uuidv4(),
-      title: req.body.title,
-      author: req.body.author,
-      bookSummary: req.body.bookSummary,
-      isbn: req.body.isbn
-    });
-    
-    res.send(book);
-});
+app.post('/api/books', bookController.books);
 
-app.put('/api/books/<bookId>', ()=>{
-    let bookId = req.param.id;
+//updating existing books
+app.put('/api/books/:bookId', bookController.put);
 
-    // if(dummyMemory.){
+//getting all the list of books 
+app.get('/api/books', bookController.list);
 
-    // }
-});
-
-
+//signup route
 app.post('/api/user/signup', userController.signup)
+//signin route
 app.post('/api/user/signin', userController.signin)
 
 module.exports = app; 
