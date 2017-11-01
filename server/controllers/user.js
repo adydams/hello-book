@@ -3,21 +3,27 @@ const User = require('../models/index').User;
 
 module.exports = {
     signin(req, res){
-        return User.findOne({
-            where: {
-                username: req.body.username,
-                password : req.body.password
+        return User
+        .findOne({
+          where: {
+              username: req.body.username,
+              password: req.body.password,
+               },      
+              
+       })
+       .then(user => { 
+          
+          if(user) { 
+              return  res.status(200).send(user.username +', successfully logged in')
+              
             }
-        }).then ((User)=>{
-            if(!User){
-              return  res.send('invalid username/password');
-            }
-            res.send(username +',you are logged in')
+            return  res.status(404).send({message:'invalid username/password'});
+            
 
         })
     },
     signup(req, res) {
-        return User//.count({ where:{username: req.body.username}})
+        return User
           .findOne({
             where: {
                 username: req.body.username,
