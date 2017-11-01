@@ -1,4 +1,5 @@
 const User = require('../models/index').User;
+const userBorrowedBooks = require('../models/index').UserBorrowedBooks;
 
 
 module.exports = {
@@ -57,4 +58,5 @@ module.exports = {
                     .catch((error)=> res.status(400).send(error))
 
           }
+          
 }
