@@ -20,7 +20,7 @@ module.exports = {
             return  res.status(404).send({message:'invalid username/password'});
             
 
-        })
+        }).catch((error)=>{res.status(400).send(error)})
     },
     signup(req, res) {
         return User
@@ -51,7 +51,6 @@ module.exports = {
                             
                   })
                   .then((user) =>
-                 // console.log(User)
                   res.status(200).send(user.username+ ' Successfully sign up'))  // create a new user if not existing
                   .catch((error) => res.status(400).send(error)); 
                 })
