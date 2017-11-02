@@ -9,6 +9,7 @@ const app = express();
 const userController = require('./server/controllers/user');
 const bookController = require('./server/controllers/book')
 const borrowBookController = require('./server/controllers/borrowBooks');
+const returnBookController = require('./server/controllers/returnBooks')
 //log response to the console
 app.use(logger('dev'))
 
@@ -37,8 +38,8 @@ app.get('/api/books', bookController.list);
 //route to borrow books for signup users only 
 app.post('/api/users/:userId/borrow/:bookId', borrowBookController.borrowBooks );
 
-//routes for users to borrow books
-app.post('/api/users/:userId/return/:bookId');
+//routes for users to return borrowed books
+app.post('/api/users/:userId/return/:bookId', returnBookController.returnBorrowedBook);
 
 
 //signup route
