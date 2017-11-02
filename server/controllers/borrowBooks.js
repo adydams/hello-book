@@ -13,31 +13,37 @@ module.exports = {
             .find({where:{id: userId} })
               .then((user)=>{
                   if (user){
+                    console.log('@@@@@@@@user',user)
                     //checking for existing book in the library
                       return Book
                             .find({where:{id: bookId} }) 
                               .then( book =>{
                                 if(!book){
+                                  
                                     return res.status(404).send({message: 'Book Not found!'})
                                   }
                                   //ensuring book is available in library
                                   else if(book && book.quantity>0) {
-                                    
                                     return userBorrowedBooks
-                                        .find({where:{bookId: req.params.bookId}})
+                                        .find({
+                                          where:{
+                                            bookId: req.params.bookId,
+                                            userId: req.params.userId
+                                          }
+                                        })
                                           .then(userborrowedbooks=>{
                                             //ensuring you cant borrow more than one copy of the same copy
                                             if(userborrowedbooks){
                                               return res.status(404).send({message: 'You have borrowed a copy of this book before, You are not allowed to borrow it again'})
                                             }
-                                            return userborrowedbooks
+                                            return userBorrowedBooks
                                                 .create({
                                                     userId: req.params.userId,
                                                     bookId: req.params.bookId,
                                                     borrowedDate: new Date(),
                                                     returnedDate: new Date().getDay()+7,
-                                                }).then((userborrowedbooks)=>{ 
-                                                  
+                                                }).then((userborrowedbook)=>{ 
+                                                     return res.status(200).send({message: 'You have just borrowed'+ book.bookTitle})
                                                           return Book
                                                             .find({where: {id : bookId}})    
                                                                   .then(book=>{
@@ -46,8 +52,9 @@ module.exports = {
                                                                       .update({quantity: (book.quantity-1)})
                                                                         .then(book=>{res.status(200)})
                                                                   })
+                                                                 
                                                             })
-                                    return res.status(200).send({message: 'You have just borrowed'+ book.bookTitle})
+                                        
                                   })
                                   }
                                   else return res.status(404).send({message: 'Book is presently unavailable'})
