@@ -3,11 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   var UserBorrowedBooks = sequelize.define('UserBorrowedBooks', {
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     bookId:{
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     borrowedDate: {
       type: DataTypes.DATE
