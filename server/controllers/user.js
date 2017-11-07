@@ -48,15 +48,15 @@ module.exports = {
                   firstName:req.body.firstName,
                   lastName: req.body.lastName,
                   roleId: 1,
-                  mobileNumber: req.body.mobileNumber
-                            
-                  })
-                  .then((user) =>
-                  res.status(200).send(user.username+ ' Successfully sign up'))  // create a new user if not existing
-                  .catch((error) => res.status(400).send(error)); 
+                  mobileNumber: req.body.mobileNumber                        
                 })
+                  .then((user) =>
+                  // create a new user if not existing
+                  res.status(200).send(user.username+ ' Successfully sign up'))  
+                  .catch((error) => res.status(400).send(error)); 
+            })
                     .catch((error)=> res.status(400).send(error))
 
-          }
+        }
           
 }
