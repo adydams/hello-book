@@ -3,11 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     username:{
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     password:{
       type: DataTypes.STRING,
@@ -15,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     email:{
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     firstName:{
       type: DataTypes.STRING,
@@ -44,7 +47,15 @@ module.exports = (sequelize, DataTypes) => {
         User.belongsTo(models.Role,{
           foreignKey: 'roleId',
           onDelete: 'CASCADE'  
-        })
+        });
+        User.hasMany(models.favoriteBooks, {
+          foreignKey: 'userId',
+          onDelete: 'CASCADE'  
+        });
+        User.hasMany(models.review, {
+          foreignKey: 'userId',
+          onDelete: 'CASCADE'  
+        });
       }
     }
   });
