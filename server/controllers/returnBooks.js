@@ -11,11 +11,10 @@ module.exports = {
         return User
                 .find({where:{id: userId}})
                      .then((user)=>{
-                         console.log('**********',user)
-                            if(!user){
-                                return res.status(404).send({message: 'You have not borrowed a book' })
+                         if(!user){
+                                return res.status(404).send({message: 'User not found' })
                             }
-                           
+                           else{
                                 return userBorrowedBooks
                                     .find({
                                         where:{
@@ -23,20 +22,36 @@ module.exports = {
                                         bookId: req.params.bookId
                                         }
                                     }).then( userborrowedbooks=>{
-                                        if(userborrowedbooks){
-                                            return res.status(200).send({message: 'You have successfully returned a book ' })
+                                        if(!userborrowedbooks){
+                                            return res.status(404).send({message: 'You have not borrowed this book you want to return ' })
+                                        }
+                                        else{
+                                            //deleting a returned book from borrower's list
                                             return userborrowedbooks    
-                                                 .destroy({
+                                                .destroy({
                                                      where:{
                                                      userId: req.params.userId,
-                                                    bookId: req.params.bookId
-                                                }
+                                                     bookId: req.params.bookId
+                                                    }
+                                                })
+                                            }
+                                        })
+                                         .then(()=>{
+                                        
+                                                     //adding quantity of returned book +1
+                                                return Book
+                                                .find({where: {id : bookId}})   
+                                                    .then(book=>{
+                                                    return book
+                                                        .update({quantity: (book.quantity+1)})
+                                                  .then(book=>{
+                                                  return  res.status(200).send({message: 'You have just returned '+ book.bookTitle})
+                                                  })
+                                                })
                                             })
-                                           
                                         }
-                                        return res.status(404).send({message: 'You have not borrowed this book you want to return ' })
-                                    })
+                                    }).catch((error)=>{res.status(404).send({message: 'user not found'})})
                                                           
-                        }).catch((error)=>{res.status(404).send({error})})
-        }        
+                        }
+               
 }
