@@ -32,14 +32,8 @@ module.exports ={
 
         let bookId = req.params.bookId 
         return Book
-            .findById(bookId, {
-                include: [{
-                  model: Book,
-                  as: 'book',
-                }],
-              })     
+            .find( {where:{id:bookId}})     
             .then( book =>{
-                
                 if (!book){
                     return res.status(404).send({message: 'Book does not exist in record ' })
                 }
@@ -68,3 +62,41 @@ module.exports ={
                 .catch((error)=>{res.status(400).send(error)})
      }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

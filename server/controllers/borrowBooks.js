@@ -13,7 +13,6 @@ module.exports = {
             .find({where:{id: userId} })
               .then((user)=>{
                   if (user){
-                    console.log('@@@@@@@@user',user)
                     //checking for existing book in the library
                       return Book
                             .find({where:{id: bookId} }) 
@@ -43,18 +42,19 @@ module.exports = {
                                                     borrowedDate: new Date(),
                                                     returnedDate: new Date().getDay()+7,
                                                 }).then((userborrowedbook)=>{ 
-                                                     return res.status(200).send({message: 'You have just borrowed'+ book.bookTitle})
-                                                          return Book
+                                                    if(userborrowedbook){
+                                                        return Book
                                                             .find({where: {id : bookId}})    
+                                                              .then(book=>{
+                                                         //deducting quantity of borrowed book by 1
+                                                                return book
+                                                                .update({quantity: (book.quantity-1)})
                                                                   .then(book=>{
-                                                                    //deducting quantity of borrowed book by 1
-                                                                    return book
-                                                                      .update({quantity: (book.quantity-1)})
-                                                                        .then(book=>{res.status(200)})
+                                                                    res.status(200).send({message: 'You have just borrowed '+ book.bookTitle})
                                                                   })
-                                                                 
-                                                            })
-                                        
+                                                               })
+                                                        }
+                                                    })                                                                                                 
                                   })
                                   }
                                   else return res.status(404).send({message: 'Book is presently unavailable'})

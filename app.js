@@ -9,7 +9,9 @@ const app = express();
 const userController = require('./server/controllers/user');
 const bookController = require('./server/controllers/book')
 const borrowBookController = require('./server/controllers/borrowBooks');
-const returnBookController = require('./server/controllers/returnBooks')
+const returnBookController = require('./server/controllers/returnBooks');
+const booksFavoriteController =require('./server/controllers/favoritesBooks');
+const bookReviewController = require('./server/controllers/review')
 //log response to the console
 app.use(logger('dev'))
 
@@ -41,6 +43,14 @@ app.post('/api/users/:userId/borrow/:bookId', borrowBookController.borrowBooks )
 //routes for users to return borrowed books
 app.post('/api/users/:userId/return/:bookId', returnBookController.returnBorrowedBook);
 
+//routes for users to review books
+app.post('/api/users/:userId/review/:bookId', bookReviewController.bookReview);
+
+//routes to mark a book as favorite
+app.post('/api/users/:userId/fav/:bookId',booksFavoriteController.markFavoriteBook)
+
+//routes to get all favorite books for a user
+app.get('/api/users/:userId/favbooks', booksFavoriteController.getUserFavoriteBook)
 
 //signup route
 app.post('/api/user/signup', userController.signup)
